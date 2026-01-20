@@ -1,0 +1,213 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: black;
+}
+
+/* Main Background */
+.home-container {
+    width: 99vw;
+    height: 140vh;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+
+/* Navbar */
+.navbar {
+    width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+}
+
+.logo {
+  font-size: 50px;
+  letter-spacing: 1px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.logo-image {
+    width: 80px;
+    height: 80px;
+    background-image: url(logo_image.png);
+    background-size: cover;
+}
+
+.book-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: black; 
+  color: white;
+  
+  transition: all 0.5s ease; 
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.book-btn:hover {
+  background: black; 
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 15px -3px rgba(56, 138, 253, 0.5);
+}
+
+/* Hero Section */
+.hero-section {
+    border-radius: 15px;
+    background-image: url(bus_image.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 20px 100px;
+}
+
+/* Left Content */
+.hero-text {
+  max-width: 650px;
+  margin-left: 40px;
+}
+
+.hero-text h2 {
+    color: white;
+  font-size: 56px;
+  line-height: 1.15;
+}
+
+.hero-text span {
+  color: white;
+}
+
+.hero-text p {
+  margin-top: 22px;
+  font-size: 20px;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Buttons */
+.hero-buttons {
+  margin-top: 35px;
+  display: flex;
+  gap: 18px;
+}
+
+.primary-btn {
+    height: 60px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: black;
+  color: white;
+  transition: all 0.5s ease; 
+  box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+}
+
+/* The Hover State */
+.primary-btn:hover {
+  background: black; 
+  transform: translateY(-3px); 
+  box-shadow: 0 10px 15px -3px rgba(56, 138, 253, 0.5);
+}
+
+/* Info Card */
+.info-card {
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(12px);
+    padding: 35px;
+    border-radius: 18px;
+    width: 340px;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.5);
+    margin-right: 40px;
+}
+
+.info-card h3 {
+    color: white;
+  margin-bottom: 18px;
+  font-size: 22px;
+}
+
+.info-list p {
+  margin-bottom: 10px;
+  color: #e5e7eb;
+  font-size: 16px;
+}
+
+/* Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 70px;
+}
+
+/* Feature Box */
+.feature-box {
+    height: 200px;
+    background: black;
+    padding: 30px;
+    border-radius: 16px;
+    text-align: center;
+}
+    
+.feature-box h4 {
+    font-size: 20px;
+    color: white;
+}
+
+.feature-box p {
+    color: #d1d5db;
+    font-size: 16px;
+    margin-top: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.copyright {
+    margin-top: 40px;
+    height: 80px;
+    text-align: center;
+    align-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+}
+
+/* Responsive fallback */
+@media (max-width: 1024px) {
+
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 60px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .info-card {
+    margin-top: 50px;
+  }
+
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+
+}

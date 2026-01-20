@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.form {
+    border: 5px solid black;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: black;
+}
+
+.passenger-container {
+    width: 99vw;
+    height: 125vh;
+    background-color: rgb(255, 255, 255);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 20px 100px;
+  color: white;
+}
+
+.passenger-navbar {
+    margin-bottom: 20px;
+}
+
+.passenger-logo {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.passenger-logo-image {
+    width: 60px;
+    height: 60px;
+    background-image: url(logo_image.png);
+    background-size: cover;
+}
+
+.passenger-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.passenger-header h1 {
+    color: white;
+  font-size: 50px;
+  font-weight: 600;
+}
+
+.passenger-header p {
+  color: #ffffff;
+  font-size: 25px;
+  margin-top: 10px;
+}
+
+.passenger-content {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Form Card */
+.form-card {
+  width: 650px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.form-card h2 {
+    color: white;
+    font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 15px;
+  margin-bottom: 6px;
+  margin-left: 5px;
+  color: #ffffff;
+}
+
+.input-group input,
+.input-group select {
+    background-color: rgba(0, 0, 0, 0.499);
+    color: white;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.466);
+  outline: none;
+  font-size: 15px;
+}
+
+.input-group select option {
+    background-color: black;
+    color: white;
+}
+
+.row {
+  display: flex;
+  gap: 20px;
+}
+
+.confirm-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff;
+  color: black;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.confirm-btn:hover {
+  background: #22c55e;
+  color: white;
+  transform: scale(1.03);
+}
+
+/* Summary Card */
+.summary-card {
+  width: 380px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  align-self: center;
+  text-align: center;
+}
+
+.summary-card h2 {
+    font-size: 22px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.summary-row {
+    font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.summary-row span {
+    color: white;
+}
+
+.demo-note {
+  margin-top: 20px;
+  background: rgba(255, 0, 0, 0.677);
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+  color: white;
+}
+
+/* HD Optimization */
+@media (min-width: 1600px) {
+
+  .passenger-container {
+    padding: 60px 160px;
+  }
+
+  .form-card {
+    width: 750px;
+  }
+
+  .summary-card {
+    width: 420px;
+  }
+}

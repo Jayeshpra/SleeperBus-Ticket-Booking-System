@@ -1,0 +1,223 @@
+.seat-page {
+    width: 99vw;
+    min-height: 135vh;
+    background: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+}
+
+.seat-wrapper {
+    justify-content: center;
+    width: 100%;
+    max-width: 1400px;
+    padding: 0px 20px;
+}
+
+.seat-navbar {
+    margin: 20px;
+}
+
+.seat-logo {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.seat-logo-image {
+    width: 50px;
+    height: 50px;
+    background-image: url(logo_image.png);
+    background-size: cover;
+}
+
+.seat-header {
+    display: flex;
+    width: 1200px;
+    height: 100px;
+    background: black;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    justify-self: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    align-items: center;
+    margin: 30px;
+}
+
+.seat-header h2 {
+    color: white;
+}
+
+.seat-header p {
+    color: white;
+}
+
+/* Deck Switch */
+.deck-switch {
+    width: 500px;
+    background-color: black;
+    border-radius: 12px;
+    display: flex;
+    gap: 15px;
+    justify-self: center;
+    justify-content: center;
+}
+
+.deck-btn {
+    padding: 10px 20px;
+    margin: 20px 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.deck-btn.active {
+    background: white;
+    color: black;
+}
+
+/* Main Content */
+.seat-content {
+    margin-top: 10px;
+    justify-self: center;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 1200px;
+    height: 700px;
+    padding: 30px;
+    background-color: black;
+    border-radius: 15px;
+    background-image: url(bus_inside.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Seat Layout */
+.seat-layout {
+    max-width: 350px;
+    border: 1px solid rgba(255, 255, 255, 0.34);
+    flex: 2;
+    background: #0000004b;
+    padding: 20px;
+    margin-left: 100px;
+    border-radius: 15px;
+}
+
+.seat-layout h3 {
+    text-align: center;
+    margin: 10px 0px;
+    padding-bottom: 10px;
+    font-size: 20px;
+    color: white;
+}
+
+/* Sleeper Grid */
+.sleeper-grid {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(6, 70px);
+    gap: 15px 30px;
+    /* aisle gap */
+    margin-top: 20px;
+}
+
+/* Seat Box */
+.sleeper-seat {
+    background: #00000067;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.sleeper-seat:hover {
+    background: rgb(255, 255, 255);
+    color: black;
+}
+
+/* Selected Seat */
+.selected {
+    background: #22c55e !important;
+    color: white;
+}
+
+/* Info Panel */
+.seat-info {
+    margin-right: 100px;
+    max-width: 400px;
+    max-height: 500px;
+    flex: 1;
+    background: #020617;
+    padding: 20px;
+    border-radius: 15px;
+    align-self: center;
+}
+
+.seat-info h3 {
+    color: white;
+    margin: 15px;
+    font-size: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    color: #cbd5f5;
+}
+
+.info-row span {
+    color: white;
+    margin: 0px 15px;
+}
+
+/* Button */
+.continue-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 20px;
+    background: #ffffff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+
+.continue-btn:hover {
+  background: #22c55e;
+  color: white;
+  transform: scale(1.03);
+}
+
+.continue-btn:disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+
+    .seat-content {
+        flex-direction: column;
+    }
+
+    .sleeper-grid {
+        margin: auto;
+    }
+
+}
