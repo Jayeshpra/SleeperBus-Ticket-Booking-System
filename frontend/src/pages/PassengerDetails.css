@@ -9,15 +9,17 @@ body {
 }
 
 .form {
-    border: 5px solid black;
+    border: 1px solid white;
     padding-top: 30px;
     padding-bottom: 30px;
     background-color: black;
+    box-shadow: 0 0 15px gray;
+    animation: slideUp 0.5s ease-out;
 }
 
 .passenger-container {
     width: 99vw;
-    height: 125vh;
+    height: 140vh;
     background-color: rgb(255, 255, 255);
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,7 +43,7 @@ body {
 .passenger-logo-image {
     width: 60px;
     height: 60px;
-    background-image: url(logo_image.png);
+    background-image: url(../assets/logo_image.png);
     background-size: cover;
 }
 
@@ -117,7 +119,9 @@ body {
   gap: 20px;
 }
 
-.confirm-btn {
+.confirm-btn,
+.mealbooking-btn {
+  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   margin-top: 20px;
   padding: 14px;
@@ -126,13 +130,19 @@ body {
   background: #ffffff;
   color: black;
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
 .confirm-btn:hover {
   background: #22c55e;
+  color: white;
+  transform: scale(1.03);
+}
+
+.mealbooking-btn:hover {
+  background-color: orange;
   color: white;
   transform: scale(1.03);
 }

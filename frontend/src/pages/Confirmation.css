@@ -1,0 +1,218 @@
+/* Page Background */
+.confirm-page {
+  display: flex;
+  flex-direction: column;
+  min-width: 99vw;
+  min-height: 120vh;
+  background-color: #f4f7f6;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.confirm-navbar {
+    margin-bottom: 20px;
+    margin-left: 50px;
+}
+
+.confirm-logo {
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.confirm-logo-image {
+    width: 50px;
+    height: 50px;
+    background-image: url(../assets/logo_image.png);
+    background-size: cover;
+}
+
+/* Main Card with Shadow */
+.confirm-card {
+  background: white;
+  width: 100%;
+  max-width: 450px;
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px 0px;
+  align-self: center;
+  text-align: center;
+  /* Shadow added here */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+/* Success Header */
+.confirm-header {
+  margin-bottom: 25px;
+}
+
+.check-icon {
+  width: 60px;
+  height: 60px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  font-size: 30px;
+  line-height: 60px;
+  margin: 0 auto 15px;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.confirm-header h1 {
+  margin: 0;
+  color: #333;
+  font-size: 24px;
+}
+
+.confirm-header p {
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Ticket Details Section */
+.ticket-details {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px dashed #ccc; /* Dashed border looks like a real ticket */
+}
+
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.label {
+  color: #888;
+  font-size: 14px;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+}
+
+.value.bold {
+  font-weight: 700;
+  color: #000;
+}
+
+.value.price {
+  color: #28a745;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 15px 0;
+}
+
+/* Route Info */
+.route-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.city {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.city-name {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+.city-time {
+  font-size: 12px;
+  color: #666;
+}
+
+.arrow {
+  color: #888;
+  font-size: 18px;
+}
+
+/* Grid for Passenger Info */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Buttons */
+.confirm-actions {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #666;
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #eaeaea;
+  color: #333;
+}
+
+/* Animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Print Styles - Hides buttons when printing */
+@media print {
+  .confirm-actions, .check-icon {
+    display: none;
+  }
+  .confirm-page {
+    background: white;
+    padding: 0;
+  }
+  .confirm-card {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+}

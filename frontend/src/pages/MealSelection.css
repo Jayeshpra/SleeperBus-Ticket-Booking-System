@@ -1,0 +1,170 @@
+/* Meal Grid */
+
+.menu-container {
+    width: 99vw;
+    height: 230vh;
+    background-color: rgb(255, 255, 255);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 100px;
+    color: white;
+}
+
+.meal-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 250px);
+    grid-template-rows: repeat(2, 400px);
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.menu {
+    width: 1400px;
+    border: 1px solid white;
+    margin-top: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background-color: black;
+    box-shadow: 0 0 15px gray;
+    animation: slideUp 0.5s ease-out;
+    justify-self: center;
+}
+
+.menu h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 60px;
+    font-weight: 700;
+    padding-right: 10px;
+}
+.menu p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.meal-card {
+    height: 400px;
+    background: #ffffff;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meal-card img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease;
+}
+
+.meal-card:hover img {
+    transform: scale(1.05);
+}
+
+.meal-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.meal-price {
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* Quantity Controls */
+
+.qty-controls {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.qty-btn {
+    width: 40px;
+    height: 40px;
+    padding: 6px 12px;
+    border: none;
+    background: #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.qty-btn.add {
+    background: #007bff;
+    color: white;
+}
+
+.qty-value {
+    font-weight: bold;
+}
+
+/* Summary Divider */
+
+.meal-summary-card {
+  width: 380px;
+  height: 360px;
+  background: white;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  margin: 50px 30px;
+  padding: 25px;
+  justify-self: center;
+  text-align: center;
+}
+
+.meal-summary-card h2 {
+    font-size: 25px;
+    font-weight: 500;
+  margin-bottom: 35px;
+  color: black;
+}
+
+.meal-summary-row {
+    font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  color: black;
+}
+
+.meal-summary-row span {
+    color: black;
+    font-size: 18px;
+}
+
+.divider {
+    border-top: 3px solid #ddd;
+    margin: 12px 0;
+}
+
+.meal-confirm-btn {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: black;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.meal-confirm-btn:hover {
+  background: #22c55e;
+  color: white;
+  transform: scale(1.03);
+}
+
+.summary-row.total span {
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}

@@ -1,6 +1,6 @@
 .seat-page {
     width: 99vw;
-    min-height: 135vh;
+    min-height: 150vh;
     background: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
@@ -29,14 +29,14 @@
 .seat-logo-image {
     width: 50px;
     height: 50px;
-    background-image: url(logo_image.png);
+    background-image: url(../assets/logo_image.png);
     background-size: cover;
 }
 
 .seat-header {
     display: flex;
     width: 1200px;
-    height: 100px;
+    height: 200px;
     background: black;
     color: white;
     padding: 20px;
@@ -47,6 +47,28 @@
     font-family: "Segoe UI", Arial, sans-serif;
     align-items: center;
     margin: 30px;
+    animation: slideUp 0.5s ease-out;
+}
+
+.destination-select-container {
+    margin: 10px 0;
+}
+
+.destination-select-container label {
+    color: white;
+    padding-right: 10px;
+}
+
+.destination-select-container select {
+    padding: 5px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+}
+
+.destination-select-container select option {
+    background-color: black;
+    color: white;
 }
 
 .seat-header h2 {
@@ -96,9 +118,10 @@
     padding: 30px;
     background-color: black;
     border-radius: 15px;
-    background-image: url(bus_inside.webp);
+    background-image: url(../assets/bus_inside.webp);
     background-repeat: no-repeat;
     background-size: cover;
+    animation: slideUp 0.5s ease-out;
 }
 
 /* Seat Layout */

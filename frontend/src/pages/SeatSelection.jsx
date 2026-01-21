@@ -6,8 +6,26 @@ function SeatSelection() {
 
   const navigate = useNavigate();
 
+  const destinationData = [
+    { city: "Anand", price: 200, time: "10:45 PM" },
+    { city: "Vadodara", price: 400, time: "11:30 PM" },
+    { city: "Bharuch", price: 600, time: "01:00 AM" },
+    { city: "Surat", price: 800, time: "02:30 AM" },
+    { city: "Daman", price: 1000, time: "04:00 AM" },
+    { city: "Mumbai", price: 1400, time: "07:00 AM" },
+  ];
+
   const [deck, setDeck] = useState("lower");
   const [selectedSeat, setSelectedSeat] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState("Mumbai");
+
+  const currentPrice = destinationData.find(
+    (item) => item.city === selectedDestination
+  )?.price || 0;
+
+  const currentTime = destinationData.find(
+    (item) => item.city === selectedDestination
+  )?.time || "09:00 PM";
 
   // Generate seats dynamically
   const generateSeats = (prefix) => {
@@ -27,6 +45,10 @@ function SeatSelection() {
     setSelectedSeat(seatNumber);
   };
 
+  const handleDestinationChange = (e) => {
+    setSelectedDestination(e.target.value);
+  };
+
 
   return (
     <div className="seat-page">
@@ -43,13 +65,30 @@ function SeatSelection() {
         {/* Header */}
         <div className="seat-header">
           <div className="details">
-            <h2>Ahmedabad ➝ Mumbai</h2>
+            <h2>Ahmedabad ➝ {selectedDestination}</h2>
+
+            {/* --- 4. Add the Dropdown Menu --- */}
+            <div className="destination-select-container">
+              <label htmlFor="destination">Drop Point:</label>
+              <select
+                id="destination"
+                value={selectedDestination}
+                onChange={handleDestinationChange}
+              >
+                {destinationData.map((item) => (
+                  <option key={item.city} value={item.city}>
+                    {item.city}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <p>Departure: 09:00 PM | AC Sleeper</p>
           </div>
           <div className="deck-switch">
 
             <div className={`deck-slider ${deck === "upper" ? "move-right" : ""}`}></div>
-            
+
             <button
               className={deck === "lower" ? "deck-btn active" : "deck-btn"}
               onClick={() => setDeck("lower")}
@@ -103,7 +142,7 @@ function SeatSelection() {
 
             <div className="info-row">
               <span>Route</span>
-              <span>Ahmedabad → Mumbai</span>
+              <span>Ahmedabad → {selectedDestination}</span>
             </div>
 
             <div className="info-row">
@@ -118,12 +157,22 @@ function SeatSelection() {
 
             <div className="info-row">
               <span>Price</span>
-              <span>₹900</span>
+              <span>₹{currentPrice}</span>
             </div>
 
             <button
               disabled={!selectedSeat}
-              onClick={() => navigate("/passenger", {state: {seat: selectedSeat, deck: deck.toUpperCase()}})}
+              onClick={() =>
+                navigate("/passenger", {
+                  state: {
+                    seat: selectedSeat,
+                    deck: deck.toUpperCase(),
+                    destination: selectedDestination,
+                    price: currentPrice,
+                    time: currentTime
+                  }
+                })
+              }
               className="continue-btn"
             >
               Continue

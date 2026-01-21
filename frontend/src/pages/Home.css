@@ -39,7 +39,7 @@
 .logo-image {
     width: 80px;
     height: 80px;
-    background-image: url(logo_image.png);
+    background-image: url(../assets/logo_image.png);
     background-size: cover;
 }
 
@@ -66,7 +66,7 @@
 /* Hero Section */
 .hero-section {
     border-radius: 15px;
-    background-image: url(bus_image.webp);
+    background-image: url(../assets/bus_image.webp);
     background-repeat: no-repeat;
     background-size: cover;
     height: 500px;
@@ -74,6 +74,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 100px 20px 100px;
+    animation: slideUp 0.5s ease-out;
 }
 
 /* Left Content */
@@ -118,6 +119,7 @@
   color: white;
   transition: all 0.5s ease; 
   box-shadow: 0 4px 6px -1px rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.5s ease-out;
 }
 
 /* The Hover State */
@@ -125,6 +127,7 @@
   background: black; 
   transform: translateY(-3px); 
   box-shadow: 0 10px 15px -3px rgba(56, 138, 253, 0.5);
+  animation: slideUp 0.5s ease-out;
 }
 
 /* Info Card */
@@ -136,6 +139,7 @@
     width: 340px;
     box-shadow: 0px 15px 40px rgba(0,0,0,0.5);
     margin-right: 40px;
+    animation: slideUp 0.5s ease-out;
 }
 
 .info-card h3 {
@@ -156,6 +160,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
   margin-top: 70px;
+  animation: slideUp 0.5s ease-out;
 }
 
 /* Feature Box */
