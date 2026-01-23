@@ -178,21 +178,44 @@
     color: white;
 }
 
+.reserved {
+    background-color: red;
+    color: white;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.label-summary {
+    display: flex;
+}
+
+.seat-label {
+    width: 150px;
+    height: 40px;
+    margin: 30px 10px;
+    text-align: center;
+    align-content: center;
+    color: white;
+    border-radius: 5px;
+}
+
 /* Info Panel */
 .seat-info {
-    margin-right: 100px;
-    max-width: 400px;
-    max-height: 500px;
+    margin-top: 40px;
+    width: 350px;
+    height: 400px;
     flex: 1;
     background: #020617;
     padding: 20px;
     border-radius: 15px;
-    align-self: center;
+    justify-self: center;
 }
 
 .seat-info h3 {
     color: white;
-    margin: 15px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
     font-size: 20px;
 }
 

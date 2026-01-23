@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SeatSelection.css";
+import axios from "axios";
 
 function SeatSelection() {
 
@@ -18,6 +19,23 @@ function SeatSelection() {
   const [deck, setDeck] = useState("lower");
   const [selectedSeat, setSelectedSeat] = useState(null);
   const [selectedDestination, setSelectedDestination] = useState("Mumbai");
+  const [reservedSeats, setReservedSeats] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/reserved-seats/')
+      .then(res => {
+        setReservedSeats(res.data);
+      })
+      .catch(err => {
+        console.log("Error fetching reserved seats", err);
+      });
+  }, []);
+
+  const isSeatReserved = (seat, deck) => {
+    return reservedSeats.some(
+      item => item.seat_number === seat.toUpperCase() && item.deck === deck.toUpperCase()
+    );
+  };
 
   const currentPrice = destinationData.find(
     (item) => item.city === selectedDestination
@@ -123,8 +141,12 @@ function SeatSelection() {
 
                 <div
                   key={seat}
-                  className={`sleeper-seat ${selectedSeat === seat ? "selected" : ""}`}
-                  onClick={() => handleSeatClick(seat)}
+                  className={`sleeper-seat ${selectedSeat === seat ? "selected" : ""} ${isSeatReserved(seat, deck) ? "reserved" : ""}`}
+                  onClick={() => {
+                    if (!isSeatReserved(seat, deck)) {
+                      handleSeatClick(seat);
+                    }
+                  }}
                 >
                   {seat}
                 </div>
@@ -134,50 +156,57 @@ function SeatSelection() {
             </div>
 
           </div>
-
-          {/* Info Panel */}
-          <div className="seat-info">
-
-            <h3>Booking Summary</h3>
-
-            <div className="info-row">
-              <span>Route</span>
-              <span>Ahmedabad → {selectedDestination}</span>
+          <div>
+            <div className="label-summary">
+              <div className="seat-label" style={{ background: "#00000067" }}>Available Seats</div>
+              <div className="seat-label" style={{ background: "#22c55e" }}>Selected Seat</div>
+              <div className="seat-label" style={{ background: "red" }}>Reserved Seats</div>
             </div>
+            {/* Info Panel */}
+            <div className="seat-info">
 
-            <div className="info-row">
-              <span>Deck</span>
-              <span>{deck.toUpperCase()}</span>
+
+              <h3>Booking Summary</h3>
+
+              <div className="info-row">
+                <span>Route</span>
+                <span>Ahmedabad → {selectedDestination}</span>
+              </div>
+
+              <div className="info-row">
+                <span>Deck</span>
+                <span>{deck.toUpperCase()}</span>
+              </div>
+
+              <div className="info-row">
+                <span>Seat</span>
+                <span>{selectedSeat || "Not Selected"}</span>
+              </div>
+
+              <div className="info-row">
+                <span>Price</span>
+                <span>₹{currentPrice}</span>
+              </div>
+
+              <button
+                disabled={!selectedSeat}
+                onClick={() =>
+                  navigate("/passenger", {
+                    state: {
+                      seat: selectedSeat,
+                      deck: deck.toUpperCase(),
+                      destination: selectedDestination,
+                      price: currentPrice,
+                      time: currentTime
+                    }
+                  })
+                }
+                className="continue-btn"
+              >
+                Continue
+              </button>
+
             </div>
-
-            <div className="info-row">
-              <span>Seat</span>
-              <span>{selectedSeat || "Not Selected"}</span>
-            </div>
-
-            <div className="info-row">
-              <span>Price</span>
-              <span>₹{currentPrice}</span>
-            </div>
-
-            <button
-              disabled={!selectedSeat}
-              onClick={() =>
-                navigate("/passenger", {
-                  state: {
-                    seat: selectedSeat,
-                    deck: deck.toUpperCase(),
-                    destination: selectedDestination,
-                    price: currentPrice,
-                    time: currentTime
-                  }
-                })
-              }
-              className="continue-btn"
-            >
-              Continue
-            </button>
-
           </div>
         </div>
 

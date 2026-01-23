@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./PassengerDetails.css";
+import axios from "axios";
 
 function PassengerDetails() {
 
   const location = useLocation();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const actionType = e.nativeEvent.submitter.value;
 
@@ -15,6 +16,8 @@ function PassengerDetails() {
       passengerName: formData.fullName,
       age: formData.age,
       gender: formData.gender,
+      mobile: formData.mobile,
+      emailaddress: formData.emailaddress,
       seat: seatNumber,
       deck: deckType,
       destination: destination,
@@ -22,8 +25,55 @@ function PassengerDetails() {
       arrival: timeReached,
     };
 
+    const apiPayload = {
+
+      passenger_name: finalBookingData.passengerName,
+      age: finalBookingData.age,
+      gender: finalBookingData.gender,
+
+      mobile_number: finalBookingData.mobile,
+      email_address: finalBookingData.emailaddress,
+
+      seat_number: finalBookingData.seat,
+      deck: finalBookingData.deck,
+      drop_point: finalBookingData.destination,
+
+      ticket_price: Number(finalBookingData.price),
+
+      meal_name: "no meal",
+      meal_quantity: "0",
+      meal_price: "0",
+
+      total_meal_price: 0,
+      grand_total_amount: Number(finalBookingData.price),
+    };
+
+
     if (actionType === "checkout") {
-      navigate('/confirmation', { state: finalBookingData });
+
+      try {
+
+        const response = await axios.post(
+          "http://127.0.0.1:8000/api/create-booking/",
+          apiPayload
+        );
+        navigate('/confirmation', {
+          state: {
+            ...finalBookingData,
+            bookingId: response.data.bookingId
+          }
+        });
+
+      } catch (error) {
+        console.error(error);
+
+        if (error.response?.data?.error) {
+          alert(error.response.data.error);
+        } else {
+          alert("Booking failed!");
+        }
+      }
+
     }
 
     if (actionType === "meal") {
@@ -40,7 +90,9 @@ function PassengerDetails() {
   const [formData, setFormData] = useState({
     fullName: "",
     age: "",
-    gender: "Male"
+    gender: "Male",
+    mobile: "",
+    emailaddress: ""
   });
 
   const handleChange = (e) => {
@@ -97,12 +149,12 @@ function PassengerDetails() {
 
             <div className="input-group">
               <label>Mobile Number</label>
-              <input type="tel" placeholder="Enter mobile number" required />
+              <input type="number" name="mobile" placeholder="Enter mobile number" required value={formData.mobile} onChange={handleChange} />
             </div>
 
             <div className="input-group">
               <label>Email Address</label>
-              <input type="email" placeholder="Enter email" required />
+              <input type="email" name="emailaddress" placeholder="Enter email" required value={formData.emailaddress} onChange={handleChange} />
             </div>
 
             <button className="confirm-btn" type="submit" name="action" value="checkout">

@@ -11,6 +11,7 @@ import icecream from "../assets/ice_cream.webp";
 import water from "../assets/mineral_water.webp";
 import tea from "../assets/tea.webp";
 import coffee from "../assets/cold_coffee.webp";
+import axios from "axios";
 
 function MealSelection() {
 
@@ -50,25 +51,70 @@ function MealSelection() {
         }, 0);
     };
 
-    const handleProceed = () => {
+    const handleProceed = async () => {
 
         const selectedMeals = Object.entries(cart)
             .filter(([_, qty]) => qty > 0)
             .map(([id, qty]) => {
                 const item = menuItems.find(i => i.id === parseInt(id));
-                return { ...item, qty, totalItemPrice: item.price * qty };
+                return {
+                    ...item,
+                    qty,
+                    totalItemPrice: item.price * qty
+                };
             });
 
         const mealTotalPrice = calculateTotal();
+        const mealNames = selectedMeals.map(item => item.name).join(", ");
+        const mealQtys = selectedMeals.map(item => item.qty).join(", ");
+        const mealPrices = selectedMeals.map(item => item.totalItemPrice).join(", ");
 
-        navigate("/confirmation", {
-            state: {
-                ...bookingData,
-                mealItems: selectedMeals,
-                grandTotal: (bookingData.price || 0) + mealTotalPrice,
-                mealTotal: mealTotalPrice,
-            }
-        });
+        const apiPayload = {
+            // Ensure we fallback to empty strings or 0 if data is missing
+            passenger_name: bookingData.passengerName || "",
+            age: bookingData.age || 0,
+            gender: bookingData.gender || "Male",
+            mobile_number: bookingData.mobile || "",
+            email_address: bookingData.emailaddress || "",
+            seat_number: bookingData.seat || "",
+            deck: bookingData.deck || "",
+            drop_point: bookingData.destination || "",
+
+            // Check if your backend expects 'price' or 'ticket_price'
+            ticket_price: Number(bookingData.price) || 0,  // Convert to Number!
+
+            meal_name: mealNames,
+            meal_quantity: mealQtys,
+            meal_price: mealPrices,
+
+            total_meal_price: mealTotalPrice,
+
+            // Fix: Ensure we are adding numbers, not strings
+            grand_total_amount: (Number(bookingData.price) || 0) + mealTotalPrice,
+        };
+
+        try {
+
+            const response = await axios.post(
+                "http://127.0.0.1:8000/api/create-booking/",
+                apiPayload
+            );
+
+            console.log("Booking Success:", response.data);
+
+            navigate("/confirmation", {
+                state: {
+                    ...bookingData,
+                    mealItems: selectedMeals,
+                    mealTotal: mealTotalPrice,
+                    grandTotal: (bookingData.price || 0) + mealTotalPrice,
+                    bookingId: response.data.booking_id
+                }
+            });
+        } catch (error) {
+            console.error("Booking failed:", error);
+            alert("Booking failed! Please Enter Passenger details.");
+        }
     };
 
     return (
