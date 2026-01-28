@@ -15,7 +15,6 @@ function Confirmation() {
     destination = "Mumbai",
     price = 0, // Ticket Price
     arrival = "--:--",
-    // New Data from Meal Selection
     mealItems = [],
     mealTotal = 0,
     grandTotal = price // Default to ticket price if no meals
@@ -68,7 +67,7 @@ function Confirmation() {
 
           <div className="divider"></div>
 
-          {/* Passenger & Seat Info */}
+          {/* Passenger and Seat Info */}
           <div className="info-grid">
             <div className="info-item">
               <span className="label">Passenger</span>
