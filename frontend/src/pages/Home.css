@@ -10,7 +10,7 @@
 /* Main Background */
 .home-container {
     width: 99vw;
-    height: 140vh;
+    height: 100%;
     background-color: white;
     display: flex;
     justify-content: center;
@@ -194,13 +194,37 @@
     font-weight: 500;
 }
 
-/* Responsive fallback */
+/* --- RESPONSIVE UPDATES --- */
+
+/* Tablet & Smaller Laptops (1024px and down) */
 @media (max-width: 1024px) {
+  .home-container {
+    height: auto; /* Remove fixed height to prevent cutting off content */
+    min-height: 100vh;
+    padding-left: 40px; /* Reduce massive padding */
+    padding-right: 40px;
+    flex-direction: column; /* Stack navbar and content if needed */
+    align-items: center;
+    width: 100%;
+  }
+
+  .navbar {
+    width: 100%;
+    padding: 20px 0;
+  }
 
   .hero-section {
     flex-direction: column;
     text-align: center;
-    padding-top: 60px;
+    padding: 60px 20px;
+    height: auto; /* Allow hero to grow with content */
+    background-position: center;
+  }
+
+  .hero-text {
+    margin-left: 0; /* Remove left margin to center correctly */
+    margin-bottom: 40px;
+    max-width: 100%;
   }
 
   .hero-buttons {
@@ -208,11 +232,65 @@
   }
 
   .info-card {
-    margin-top: 50px;
+    margin-right: 0;
+    margin-top: 30px;
+    width: 80%; /* Make card fluid */
+    max-width: 400px;
   }
 
   .features-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets looks better than 1 */
+    width: 100%;
+  }
+}
+
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+  .home-container {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
+  .navbar {
+    flex-direction: column; /* Stack logo and button */
+    gap: 20px;
+  }
+
+  .logo {
+    font-size: 35px; /* Smaller logo for mobile */
+  }
+
+  .logo-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hero-text h2 {
+    font-size: 36px; /* Smaller heading to fit screen */
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  .info-card {
+    width: 100%; /* Full width on mobile */
+  }
+
+  .features-section {
+    grid-template-columns: 1fr; /* Stack features vertically */
+    gap: 15px;
+  }
+
+  .feature-box {
+    height: auto; /* Allow box to grow if text is long */
+    min-height: 180px;
+  }
+  
+  .copyright {
+     height: auto;
+     padding: 20px;
+  }
 }
+
+

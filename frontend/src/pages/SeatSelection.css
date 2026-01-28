@@ -1,6 +1,6 @@
 .seat-page {
     width: 99vw;
-    min-height: 150vh;
+    min-height: 100%;
     background: rgb(255, 255, 255);
     display: flex;
     justify-content: center;
@@ -109,6 +109,7 @@
 /* Main Content */
 .seat-content {
     margin-top: 10px;
+    margin-bottom: 50px;
     justify-self: center;
     display: flex;
     justify-content: space-between;
@@ -255,15 +256,99 @@
     cursor: not-allowed;
 }
 
-/* Responsive */
+/* --- RESPONSIVE UPDATES FOR SEAT PAGE --- */
+
+/* Tablet & Smaller Laptops (1024px and down) */
 @media (max-width: 1024px) {
+  .seat-page {
+    height: auto; /* Allow page to grow */
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
 
-    .seat-content {
-        flex-direction: column;
-    }
+  .seat-header {
+    width: 100%; /* Remove fixed 1200px width */
+    height: auto; /* Remove fixed height */
+    flex-direction: column; /* Stack text and dropdown */
+    text-align: center;
+    gap: 20px;
+  }
 
-    .sleeper-grid {
-        margin: auto;
-    }
+  .deck-switch {
+    width: 100%; /* Remove fixed 500px width */
+    max-width: 500px;
+    margin: 0 auto; /* Center it properly */
+  }
 
+  .seat-content {
+    width: 100%; /* Remove fixed 1200px width */
+    height: auto; /* Let content dictate height */
+    flex-direction: column; /* Stack seats and info panel */
+    align-items: center;
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .seat-layout {
+    margin-left: 0; /* Remove offset */
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .seat-info {
+    width: 100%;
+    max-width: 450px;
+    margin-top: 0;
+  }
+}
+
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+  .seat-wrapper {
+    padding: 0 10px;
+  }
+
+  .seat-logo {
+    font-size: 24px;
+  }
+
+  .seat-header {
+    margin: 20px 0;
+    padding: 20px 10px;
+  }
+
+  .seat-header h2 {
+    font-size: 22px;
+  }
+
+  .deck-btn {
+    padding: 8px 16px;
+    margin: 10px 5px;
+    font-size: 14px;
+  }
+
+  .seat-content {
+    padding: 20px 10px;
+    background-position: center;
+  }
+
+  .seat-layout {
+    padding: 15px;
+  }
+
+  /* Adjust grid for small screens */
+  .sleeper-grid {
+    gap: 10px 15px; /* Reduce gap between seats */
+    grid-template-columns: repeat(3, 45px); /* Slightly smaller seats if needed */
+  }
+  
+  .label-summary {
+    flex-direction: column; /* Stack the legend (Available/Selected) */
+    align-items: center;
+  }
+  
+  .seat-label {
+    margin: 5px;
+    height: 30px;
+  }
 }

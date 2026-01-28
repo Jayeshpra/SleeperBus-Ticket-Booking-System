@@ -2,7 +2,7 @@
 
 .menu-container {
     width: 99vw;
-    height: 230vh;
+    height: 100%;
     background-color: rgb(255, 255, 255);
     background-repeat: no-repeat;
     background-size: cover;
@@ -56,6 +56,7 @@
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
+    justify-self: center;
     transition: transform 0.4s ease;
 }
 
@@ -167,4 +168,86 @@
     font-size: 18px;
     font-weight: 500;
     color: black;
+}
+
+
+/* --- RESPONSIVE UPDATES FOR MEAL PAGE --- */
+
+/* Small Desktops & Large Tablets (1450px and down) */
+@media (max-width: 1450px) {
+  .menu {
+    width: 95%; /* Switch from fixed 1400px to percentage */
+    max-width: 1200px;
+  }
+
+  .meal-grid {
+    /* Switch from 5 fixed columns to 3 flexible columns */
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: auto; /* Allow rows to grow as needed */
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .menu-container {
+    height: auto; /* Remove fixed 230vh height */
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+}
+
+/* Tablets (1024px and down) */
+@media (max-width: 1024px) {
+  .meal-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+
+  .menu h1 {
+    font-size: 45px; /* Smaller header */
+    text-align: center;
+  }
+  
+  .meal-card {
+     margin: 0 auto; /* Center cards in their grid cells */
+     width: 100%;
+     max-width: 350px;
+  }
+}
+
+/* Mobile Devices (768px and down) */
+@media (max-width: 768px) {
+  .menu-container {
+    padding: 20px 10px;
+  }
+
+  .menu {
+    width: 100%;
+    margin-top: 10px;
+    padding: 20px 10px;
+  }
+
+  .menu h1 {
+    font-size: 32px;
+  }
+
+  .meal-grid {
+    grid-template-columns: 1fr; /* 1 column (vertical stack) for mobile */
+    gap: 20px;
+  }
+
+  .meal-card {
+    height: auto; /* Allow card to grow if content wraps */
+    padding-bottom: 20px;
+  }
+
+  .meal-summary-card {
+    width: 100%;
+    max-width: 350px;
+    margin: 30px auto; /* Center the summary card */
+    height: auto;
+  }
+
+  .qty-btn {
+    width: 45px; /* Bigger buttons for easier tapping */
+    height: 45px;
+  }
 }
