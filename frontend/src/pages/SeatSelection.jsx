@@ -22,7 +22,7 @@ function SeatSelection() {
   const [reservedSeats, setReservedSeats] = useState([]);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/reserved-seats/')
+    axios.get('https://sleeperbus-ticket-booking-system.onrender.com/api/reserved-seats/')
       .then(res => {
         setReservedSeats(res.data);
       })

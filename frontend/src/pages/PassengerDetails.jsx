@@ -54,7 +54,7 @@ function PassengerDetails() {
       try {
 
         const response = await axios.post(
-          "http://127.0.0.1:8000/api/create-booking/",
+          "https://sleeperbus-ticket-booking-system.onrender.com/api/create-booking/",
           apiPayload
         );
         navigate('/confirmation', {
