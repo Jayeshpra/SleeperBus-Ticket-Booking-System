@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-tt#ccaa*@cokrb4vrex7nk1rz$nb(wf$7(ajr2r$xmo+*wt&r5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["https://sleeperbus-ticket-booking-system.onrender.com"]
 
