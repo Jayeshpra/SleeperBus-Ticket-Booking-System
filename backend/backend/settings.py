@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-tt#ccaa*@cokrb4vrex7nk1rz$nb(wf$7(ajr2r$xmo+*wt&r5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["https://sleeperbus-ticket-booking-system.onrender.com"]
+ALLOWED_HOSTS = ["sleeperbus-ticket-booking-system.onrender.com"]
 
 
 # Application definition
